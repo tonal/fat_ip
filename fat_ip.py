@@ -13,9 +13,9 @@ from itertools import chain, islice
 import os
 from os.path import join as pjoin
 
-#DIR = 'logs/20140611'
+DIR = 'logs/20140611'
 #DIR = 'logs/20140612'
-DIR = 'logs/20140613'
+#DIR = 'logs/20140613'
 CNT = 10
 
 def main():

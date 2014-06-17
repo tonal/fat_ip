@@ -6,6 +6,7 @@
 import qualified Data.Text.Lazy as TL
 import qualified Data.Text.Lazy.IO as TL
 import qualified Data.Text.Lazy.Read as TL
+import qualified Data.Text as TLS
 
 -- import Data.Function (on)
 import qualified Data.HashMap.Strict as DM
@@ -26,10 +27,10 @@ import Text.Printf
 dir :: String
 dir = "logs/20140611"
 
-line2item :: TL.Text -> Maybe (TL.Text, Int)
+line2item :: TL.Text -> Maybe (TLS.Text, Int)
 line2item line = case TL.words line of
   ip : _ : timeStr : _
-    | Right (t,"") <- TL.decimal timeStr -> Just (ip, t)
+    | Right (t,"") <- TL.decimal timeStr -> Just (TLS.copy $ TL.toStrict ip, t)
   _ -> Nothing
 
 main :: IO()
@@ -52,4 +53,4 @@ main = do
   putStrLn $ "len: " ++ (show $ DM.size items)
   let -- Выбираем 10 самых толстых
       strs = take 10 . sortBy (flip $ comparing snd) . DM.toList $ items
-  putStrLn . unlines . map (\(i, t) -> printf "%s: %d" (TL.unpack i) t) $ strs
+  putStrLn . unlines . map (\(i, t) -> printf "%s: %d" (TLS.unpack i) t) $ strs

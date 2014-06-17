@@ -10,4 +10,11 @@ cabal-dev
 cabal.sandbox.config
 cabal.config
 
+# data dirs
 /logs
+
+# binary
+fat_ip_bs
+fat_ip_text
+fat_ip_mt
+merge_logs_heap
