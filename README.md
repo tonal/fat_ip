@@ -3,6 +3,8 @@ fat_ip
 
 Быстро считаем статистику по логам на Haskell
 
+По мотивам обсуждения в группе [Русский Haskell](https://groups.google.com/forum/?hl=ru#!topic/haskell-russian/Av0cHd8Aiig)
+
 Задача 1
 ------
 В каталоге лежать некторое количество логов.
